@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="new-card-title" >Flight Details</h5>
+        <div class="row g-3 needs-validation">
+            <div class="col-md-3">
+                <label for="validationCustom01" class="form-label">From Place</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.fromPlace"
+                     readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom02" class="form-label">To Place</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.toPlace"
+                    readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Arrival Date</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.startDateTime"
+                readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Departure Date</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.endDateTime"
+                readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Schedule Days</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.scheduledDays"
+                 readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom03" class="form-label">Instrument Used</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.instrumentUsed"
+                readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom05" class="form-label">Total Seat</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.totalBussClassSeats"
+               readonly>
+            </div>
+            <div class="col-md-3">
+                <label for="validationCustom05" class="form-label">Ticket Price</label>
+                <input class="form-control" type="text" [(ngModel)]="flightRecord.ticketCost"
+                 readonly>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="new-card-title" >Add Passenger Details</h5>
+        
+<table >
+    <thead>
+    <tr>
+      <td class="tdBorderEmail"><label>Action</label></td>
+      <td class="tdBorderEmail"><label>Name</label></td>
+      <td class="tdBorderEmail"><label>Gender</label></td>
+      <td class="tdBorderEmail"><label>Age</label></td>      
+      <td class="tdBorderEmail"><label>Meal Option</label></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let dynamic of dynamicArray; let i = index;">
+      <td>
+        <button class="fa fa-plus " (click)="deleteRow(i)">Delete</button>
+      </td>
+      <td>
+        <input style="width:120px"  name="{{dynamic.PassengerName}}" [(ngModel)]="dynamic.PassengerName"  type="text" />
+      </td>
+      <td>
+        <input style="width:120px" name="{{dynamic.PassengerGender}}" [(ngModel)]="dynamic.PassengerGender"  type="text" />
+      </td>
+      <td>
+        <input  style="width:250px" name="{{dynamic.PassengerAge}}" [(ngModel)]="dynamic.PassengerAge"  type="text"/>
+      </td>
+      <td>
+        <input  style="width:250px" name="{{dynamic.MealOption}}" [(ngModel)]="dynamic.MealOption"  type="text"/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="fa fa-plus" (click)="addRow()">Add</button>
+      </td>
+      <td>
+        <button class="fa fa-plus btnBookFlight" (click)="flightBook()">Book Flight</button>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+</div>

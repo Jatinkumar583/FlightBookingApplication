@@ -1,0 +1,10 @@
+.new-card-title {
+    margin-bottom: 0.75rem;
+    background-color: lavender;
+    font-size: x-large;
+    text-align: center;
+}
+.btnBookFlight{
+    text-align: center;
+    background-color: dodgerblue;
+}

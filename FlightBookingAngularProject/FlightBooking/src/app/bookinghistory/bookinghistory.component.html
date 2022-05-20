@@ -1,0 +1,73 @@
+<div class="card">  
+    <div class="card-body">
+      <h5 class="new-card-title" >Booking History</h5>
+        <form  #bookedFlight="ngForm"  (ngSubmit)="GetBookedFlightDetails(bookedFlight.value)"class="row g-3 needs-validation" novalidate>
+            <div class="col-md-3">
+              <label for="validationCustom01" class="form-label" >Search By PNR</label>
+              <input type="text" class="form-control" id="validationCustom01" name="txtPnr" ngModel required>      
+            </div>
+            <div class="col-md-3" hidden>
+              <label for="validationCustom02" class="form-label" >Search By EmailId</label>
+              <input type="text" class="form-control" id="validationCustom02" name="txtUserEmailId" ngModel required>     
+            </div>
+            <div class="col-new-md">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+          </form>
+    </div>
+  </div>
+
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+    <div class="card">
+        <div class="body table-responsive">
+            <table class="table table-condensed">
+                <thead class="thead">
+                    <tr>
+                        <th>Flight No.</th>
+                        <th>PNR</th>
+                        <th>Source</th>
+                        <th>Destination</th>
+                        <th>Booked Seat</th>
+                        <th>Booked Date</th>
+                        <th>Action</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-green" *ngFor="let item of bookedFlightDetails">
+                        <td hidden>{{item.bookingId}}</td>
+                        <td>{{item.flightNumber}}</td>
+                        <td>{{item.pnr}}</td>
+                        <td>{{item.source}}</td>
+                        <td>{{item.destination}}</td>
+                        <td>{{item.totalSeat}}</td>
+                        <td>{{item.createdOn}}</td>  
+                        <td><button class="btn btn-primary"  type="submit" (click)="ViewTicketDetails(item)">View Details</button></td>
+                        <td><button class="btn btn-primary" type="submit" (click)="CancelTicket(item)">Cancel Ticket</button></td>                      
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Small modal -->
+<!-- <div class="modal fade" tabindex="-1" 
+role="dialog" aria-labelledby="mySmallModalLabel" aria-
+hidden="true">
+
+ <div class="modal-dialog modal-sm">
+   <div class="modal-content">
+     <div class="modal-header">
+       <button class="close" aria-label="Close" 
+        (click)="smModal.hide()">
+          <span aria-hidden="true">&times;</span>
+      </button>
+          <h4 class="modal-title">Description</h4>
+      </div>
+      <div class="modal-body"  style="color: black;">
+     </div>
+   <div class="modal-footer">
+   <button class="btn btn-primary confirm-btn" 
+   (click)="smModal.hide()">Save changes</button>
+     </div> -->
